@@ -54,4 +54,41 @@ public class Bank {
       
 		return uuid;
 	}
+/*
+	 * generate a new universally unique id for an account
+	 * return the uuid
+	 */
+	public String getNewAccountUUID()
+	{
+		// inits
+				String uuid;
+				
+				Random rng = new Random();
+				int len = 10;
+				boolean nonUnique;
+				// continue looping until we get a unique ID
+		      do{
+		    	  // generate the number
+		    	  uuid = "";
+		    	  for(int c=0; c<len; c++)
+		    	  {
+		    		  uuid += ((Integer)rng.nextInt(10)).toString();
+		    	  }
+		    	  
+		    	  // check to make sure it's unique
+		    	  nonUnique = false;
+		    	  for(Account a : this.accounts)
+		    	  {
+		    		  if(uuid.compareTo(a.getUUID()) == 0)
+		    		  {
+		    			  nonUnique = true;
+		    			  break;
+		    		  }
+		    	  }
+		    	  
+		      }  while(nonUnique);
+		      
+		      
+				return uuid;
+	}
 }

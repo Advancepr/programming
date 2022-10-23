@@ -69,4 +69,35 @@ public class Account {
 		}
 		
 	}
+
+  /*
+	 * get the balance of this account by addling the amounts of the transaction
+	 * the balance value
+	 */
+	public double getBalance()
+	{
+		double balance = 0;
+		for(Transaction t : this.transactions)
+		{
+			balance += t.getAccount();
+		}
+		return balance;
+	}
+	
+	/*
+	 * print the transaction history
+	 */
+	public  void printTransHistory()
+	{
+		System.out.printf("\nTransaction histoary for account %s\n" , this.uuid);
+		for(int t=this.transactions.size()-1 ; t>= 0 ; t--)
+		{
+			System.out.println(this.transactions.get(t).getSummaryLine());
+		}
+		
+		System.out.println();
+	}
+
+}
+
 }

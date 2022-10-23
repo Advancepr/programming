@@ -58,5 +58,33 @@ public class User {
 		
 		System.out.printf("New user %s,%s with ID %s created.\n",LastName,FirstName,this.uuid);
 	}
+     // get a new, unique universal ID for the user
+		this.uuid=thebank.getNewUserUUID();
+		
+		// create empty list of accounts
+		
+		this .accounts = new ArrayList<Account>();
+		
+		// print log message
+		
+		System.out.printf("New user %s,%s with ID %s created.\n",LastName,FirstName,this.uuid);
+	}
+	/*
+	 * add an account for the user
+	 * anAcct  the account to add
+	 */
+	public void addAccount(Account anAcct)
+	{
+		this.accounts.add(anAcct);
+	}
+	/*
+	 * return the user uuid
+	 * return the uuid
+	 */
+	public String getUUID()
+	{
+		return this.uuid;
+	}
+}
 
 }

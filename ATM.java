@@ -29,6 +29,46 @@ public static void main(String[] args) {
       }
       
 	}
+       * the bank
+	 * sc 
+	 * return
+	 * 
+	 */
+   public static User mainMenuPrompt(Bank theBank, Scanner sc)
+
+   
+   
+   
+   {
+	   // inits
+	   String userID;
+	   String pin;
+	   User outhUser;
+	   
+	   // prompt the user for user ID/pin combo until a correct one is reached
+	   do{
+		   System.out.printf("\n\n welcome to %s\n\n", theBank.getName());
+		   System.out.print("enter user ID:  ");
+		   userID = sc.nextLine();
+		   System.out.print("enter pin : ");
+		   pin = sc.nextLine();
+		   
+		   // try to get the user object corresponding to the ID and pin combo
+		   
+		   outhUser = theBank.userlogin(userID, pin);
+		   if(outhUser == null)
+		   {
+			   System.out.print("Incorrect user ID/pin combination. " + "please try Again");
+		   }
+	   }
+	   while(outhUser == null); // continue looping until successful login
+	   {
+		   
+	   }
+	   
+	   return outhUser;  //outhinthication
+   }
+
 
 }
 }
