@@ -69,6 +69,53 @@ public static void main(String[] args) {
 	   return outhUser;  //outhinthication
    }
 
+ public static void printUserMenu(User theUser, Scanner sc)
+  {
+	  // print the summary of account
+	  theUser.printAccountsSummary();
+	  
+	  // init
+	  int choice;
+	  // user menu
+	  do{
+		  System.out.printf("welcome  %s, what would you like to do ? \n" , 
+				  theUser.getFirstName());
+		  System.out.println("   1) show account transaction histroy");
+		  System.out.println("   2)  withdraw ");
+		  System.out.println("   3) deposit");
+		  System.out.println("   4) Transfer");
+		  System.out.println("   5) Quit");
+		  System.out.println();
+		  System.out.printf("Enter choice :  ");
+          choice = sc.nextInt();
+          
+          if(choice < 1 || choice >5)
+          {
+        	 System.out.println(" invalid choice. please choose 1-5");
+          }
+	  }
+	  while(choice <1 || choice >5);
+	  
+	  switch(choice)
+	  {
+	  case 1:
+		  ATM.ShowTransHistory(theUser , sc);
+		  break;
+	  case 2:
+		  ATM.withdrawFounds(theUser , sc);
+		  break;
+	  case 3:
+		  ATM.depositFounds(theUser , sc);
+		  break;
+	  case 4:
+		  ATM.tronsferFounds(theUser , sc);
+		  break;
+	  case 5:
+		  // gobble up rest of previous input
+		  sc.nextLine();
+		  break;
+	  }
+	  
 
 }
 }

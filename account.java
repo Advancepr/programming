@@ -98,6 +98,18 @@ public class Account {
 		System.out.println();
 	}
 
+	/**
+	 * add a new transaction in this account
+	 * @param amount  the amount trascated
+	 * @param memo    the transaction memo
+	 */
+	 public void addTransaction( double amount,String memo)
+	   {
+		  //  Create new transaction object and add it to out list
+		 Transaction newTrans = new Transaction(amount,memo,this);
+		 this.transactions.add(newTrans);
+	   }
+
 }
 
 }

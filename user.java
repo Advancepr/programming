@@ -85,6 +85,49 @@ public class User {
 	{
 		return this.uuid;
 	}
+/*
+	 * check whether a given pin matches the true user pin apin the pin to check whether the pin is valid or not
+	 */
+	public boolean validatepin(String apin)
+	{
+		try{
+		MessageDigest md =  MessageDigest.getInstance("MD5");
+		return MessageDigest.isEqual(md.digest(apin.getBytes()),this.pinhash);
+		}
+		catch(NoSuchAlgorithmException e)
+		{
+			System.err.println("error, cought NoSuchAlgorithmException" );
+			e.printStackTrace();
+			System.exit(1);
+		}
+		return false;
+		
+	}
+
+   public String  getFirstName()
+   {
+	  return this.FirstName;
+   }
+   
+   /*
+    * 
+    */
+   public void printAccountsSummary()
+   {
+	   System.out.printf("\n\n%s's accounts summary \n ",this.FirstName);
+	   for(int a=0; a<this.accounts.size(); a++)
+	   {
+		   System.out.printf("%d) %s\n" , a+1,
+				   this.accounts.get(a).getSummaryLine());
+	   }
+	   System.out.println();
+   }
+   
+   public int numAccounts()
+   {
+	   return this.accounts.size();
+   }
+
 }
 
 }

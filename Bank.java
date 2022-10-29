@@ -91,4 +91,28 @@ public class Bank {
 		      
 				return uuid;
 	}
+
+/*
+	 * create a new user of the bank
+	 * firstName the user's 
+	 * lastName the user's
+	 * pin the user's 
+	 * the new user object
+	 */
+	
+	public User addUser(String FirstName,String LastName,String pin)
+	{
+		// create a new user object and add it to out list
+		User newUser = new User(FirstName,LastName,pin,this);
+		this.users.add(newUser);
+		
+		//create a savings account for the user and add to user and bank accounts lists
+		Account newAccount = new Account("Savings",newUser,this);
+		//add to holder and bank lists
+		
+		newUser.addAccount(newAccount);
+	    this.accounts.add(newAccount);
+	    
+	    return newUser;
+	}
 }
