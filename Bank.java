@@ -115,4 +115,42 @@ public class Bank {
 	    
 	    return newUser;
 	}
+/*
+	 * get the user object associated with p particular userID and pin, if they are volid
+	 * user ID    the UUID of the user to log in
+	 * pin        the pin of the user
+	 *            the user object , if the login is successful , or null,if it is not
+	 */
+	public User userlogin(String userID, String pin)
+	{
+		// search through list of users
+		
+		for(User u : this.users)
+		{
+			//check user id correct
+			if(u.getUUID().compareTo(userID)==0 && u.validatepin(pin))
+			{
+				return u;
+			}
+		}
+		
+		// if we haven't found the user or have an incorrect pin
+		return null;
+		
+	}
+	public void addAccount(Account anAcct)
+
+	
+	{
+		this.accounts.add(anAcct);
+	}
+
+	/*
+	 * get the name of the Bank
+	 * retrun the name of the bank
+	 */
+  public String getName()
+  {
+	  return this.name;
+  }
 }
